@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ufs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('modulo_id');
-            $table->foreign('modulo_id')->references('id')->on('modulos');
+            $table->foreign('modulo_id')->references('id')->on('modulos')->onDelete('cascade');
             $table->string('name');
             $table->timestamps();
         });
