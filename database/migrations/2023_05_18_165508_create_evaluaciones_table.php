@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('evaluaciones', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('modulo_id');
-            $table->foreign('modulo_id')->references('id')->on('modulos');
+            $table->foreign('modulo_id')->references('id')->on('modulos')->onDelete('cascade');
             $table->unsignedBigInteger('unidadf_id');
-            $table->foreign('unidadf_id')->references('id')->on('ufs');
+            $table->foreign('unidadf_id')->references('id')->on('ufs')->onDelete('cascade');
             $table->float('nota');
             $table->timestamps();
         });
